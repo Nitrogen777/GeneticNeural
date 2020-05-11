@@ -37,6 +37,7 @@ public class Network {
     }
     public Network(int[] sizes, ArrayList<Weight> weightArr){
         netArray = new Neuron[sizes.length][];
+        weightMap = new HashMap<>();
 
         for(int i = 0; i < sizes.length; i++){
             netArray[i] = new Neuron[sizes[i]];
