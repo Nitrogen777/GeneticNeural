@@ -14,6 +14,14 @@ public class Weight {
         this.val = val;
     }
 
+    public Weight(Weight other, double val){
+        this.fromLayer = other.fromLayer;
+        this.fromIndex = other.fromIndex;
+        this.toLayer = other.toLayer;
+        this.toIndex = other.toIndex;
+        this.val = val;
+    }
+
     public int getFromLayer() {
         return fromLayer;
     }
@@ -52,5 +60,12 @@ public class Weight {
 
     public void setVal(double val) {
         this.val = val;
+    }
+
+    @Override
+    public String toString() {
+        return "From: " + fromLayer + ", " + fromIndex + "\n"
+                + "To: " + toLayer + ", " + toIndex + "\n"
+                + "Value: " + val;
     }
 }
