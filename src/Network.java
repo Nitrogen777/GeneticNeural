@@ -19,11 +19,10 @@ public class Network {
 
         for(int i = 0; i < netArray.length-1; i++){
             for(int j = 0; j < netArray[i].length; j++){
-                Neuron n = netArray[i][j];
                 for(int k = 0; k < netArray[i+1].length; k++){
                     //This is absolutely not a good way to do this. Too bad!
                     Neuron to = netArray[i+1][k];
-                    Weight w = new Weight(n, to, Math.random()*2 - 1);
+                    Weight w = new Weight(i ,j, Math.random()*2 - 1, i+1, k);
                     weightArr.add(w);
                     if(weightMap.containsKey(to)){
                         weightMap.get(to).add(w);
@@ -48,7 +47,7 @@ public class Network {
 
         this.weightArr = (ArrayList)weightArr.clone();
         for(Weight w : this.weightArr){
-            Neuron to = w.getTo();
+            Neuron to = netArray[w.getToLayer()][w.getToIndex()];
             if(weightMap.containsKey(to)){
                 weightMap.get(to).add(w);
             }else{
@@ -87,7 +86,7 @@ public class Network {
         double sum = 0;
 
         for(Weight w : weightMap.get(n)){
-            sum += w.getVal() * w.getFrom().getVal();
+            sum += w.getVal() * netArray[w.getFromLayer()][w.getFromIndex()].getVal();
         }
 
         return sum;

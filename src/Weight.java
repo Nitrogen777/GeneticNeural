@@ -1,28 +1,49 @@
 public class Weight {
-    private Neuron from;
-    private Neuron to;
+    private int fromLayer;
+    private int fromIndex;
     private double val;
+    private int toLayer;
+    private int toIndex;
 
-    public Weight(Neuron from, Neuron to, double val) {
-        this.from = from;
-        this.to = to;
+
+    public Weight(int fromLayer, int fromIndex, double val, int toLayer, int toIndex) {
+        this.fromLayer = fromLayer;
+        this.fromIndex = fromIndex;
+        this.toLayer = toLayer;
+        this.toIndex = toIndex;
         this.val = val;
     }
 
-    public Neuron getFrom() {
-        return from;
+    public int getFromLayer() {
+        return fromLayer;
     }
 
-    public void setFrom(Neuron from) {
-        this.from = from;
+    public void setFromLayer(int fromLayer) {
+        this.fromLayer = fromLayer;
     }
 
-    public Neuron getTo() {
-        return to;
+    public int getFromIndex() {
+        return fromIndex;
     }
 
-    public void setTo(Neuron to) {
-        this.to = to;
+    public void setFromIndex(int fromIndex) {
+        this.fromIndex = fromIndex;
+    }
+
+    public int getToLayer() {
+        return toLayer;
+    }
+
+    public void setToLayer(int toLayer) {
+        this.toLayer = toLayer;
+    }
+
+    public int getToIndex() {
+        return toIndex;
+    }
+
+    public void setToIndex(int toIndex) {
+        this.toIndex = toIndex;
     }
 
     public double getVal() {
