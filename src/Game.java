@@ -43,12 +43,11 @@ public abstract class Game {
         for(int i = 0; i < genSize; i++){
             int weightNumber = top[0].getWeight().size(); //hopefully its the same
             ArrayList<Weight> weights = new ArrayList<>();
+            Player m = top[r.nextInt(genSize/topPart)];
+            Player f = top[r.nextInt(genSize/topPart)];
             for(int j = 0; j < weightNumber; j++){
-                Player m = top[r.nextInt(genSize/topPart)];
-                Player f = top[r.nextInt(genSize/topPart)];
                 Weight mw = m.getWeight().get(j);
-                Weight fw = f.getWeightFromIndex(mw.getFromLayer(), mw.getFromIndex(), mw.getToLayer(),
-                        mw.getToIndex());
+                Weight fw = f.getWeightFromIndex(mw.getFromLayer(), mw.getFromIndex(), mw.getToLayer(), mw.getToIndex());
                 weights.add(new Weight(mw, (mw.getVal() + fw.getVal())/2 + Math.random()*(mutation*2)-mutation)); //oh god this is horrible
             }
             newGeneration[i] = new Player(brainSizes, weights);
