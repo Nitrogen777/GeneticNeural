@@ -10,7 +10,7 @@ public class HelloWorld extends Game {
         String generated = "";
         generated += (char)Math.round(p.calculateOutput(new double[]{0 / 255.0, 0})[0] * 255.0);
         for(int i = 1; i < goal.length(); i++){
-            generated += (char)Math.round(p.calculateOutput(new double[]{(int)generated.charAt(i-1) / 255.0, i})[0] * 255.0);
+            generated += (char)Math.round(p.calculateOutput(new double[]{(int)generated.charAt(i-1) / 255.0, i / (double)goal.length()})[0] * 255.0);
         }
         return generated;
     }
